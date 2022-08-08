@@ -9,6 +9,7 @@
       body {
         margin: 0;
         padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       .wrapper {
@@ -37,7 +38,6 @@
         display: flex;
         border-radius: 7px;
         overflow: hidden;
-
       }
 
       .left,
@@ -51,12 +51,28 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
       }
-
       .right {
         background: #fff;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input {
+        width: 70%;
+        height: 30px;
+        margin: 12px;
+      }
+
+      button {
+        background: rgb(255, 160, 234);
+        width: 20%;
+        border-radius: 7px;
+      }
+
+      #error-message {
+        color: red;
+        display: none;
       }
     </style>
   </head>
@@ -65,8 +81,35 @@
       <div class="bg-img"></div>
       <div class="container">
         <div class="left"></div>
-        <div class="right"></div>
+        <div class="right">
+          <h1>Login</h1>
+          <input id="login" type="text" />
+          <input id="pass" type="password" />
+          <p id="error-message">incorrect login or password</p>
+          <button onclick="checkPassword()">Login</button>
+        </div>
       </div>
     </div>
+    <script>
+      function checkPassword() {
+        console.log("button clicked");
+        const errorElement = document.getElementById("error-message");
+        const loginElement = document.getElementById("login");
+        const passElement = document.getElementById("pass");
+
+        const login = "vitoby";
+        const pass = "123";
+
+        console.log(loginElement.value, passElement.value);
+
+        if (login != loginElement.value || pass != passElement.value) {
+          errorElement.style.display = "block";
+        } else {
+          document.location.reload();
+        }
+
+        
+      }
+    </script>
   </body>
 </html>
