@@ -65,8 +65,9 @@
       }
 
       button {
-        background: rgb(255, 160, 234);
-        width: 20%;
+        background: rgb(133, 239, 243);
+        width: 45%;
+        height: 5%;
         border-radius: 7px;
       }
 
@@ -104,11 +105,10 @@
 
         if (login != loginElement.value || pass != passElement.value) {
           errorElement.style.display = "block";
+          errorElement.innerHTML = "Atom"
         } else {
           document.location.reload();
-        }
-
-        
+        } 
       }
     </script>
   </body>
